@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times but print "Hi" at the 9th loop
+
+string1="Best School"
+string2="Hi"
+count=0
+
+while [ $count -lt 10 ]; do
+    if [ $count -eq 8 ]; then
+        echo "$string1"
+        echo "$string2"
+    else
+        echo "$string1"
+    fi
+    ((count++))
+done
