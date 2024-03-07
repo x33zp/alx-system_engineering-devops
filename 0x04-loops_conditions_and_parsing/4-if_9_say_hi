@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times but print "Hi" at the 9th loop
+# This script is displaying "Best School" 10 times but adds "Hi" after the 9th loop
 
 string1="Best School"
 string2="Hi"
