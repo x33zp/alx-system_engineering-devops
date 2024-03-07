@@ -6,12 +6,11 @@
 # Otherwise, displays the number
 # In a list format
 
-count=1
 fizz="fizz"
 buzz="buzz"
 fizzbuzz="FizzBuzz"
 
-while [ $count -le 100 ]; do
+for count in {1..100}; do
     if [ $((count % 15)) -eq 0 ]; then
         echo "$fizzbuzz"
     elif [ $((count % 3)) -eq 0 ]; then
@@ -19,7 +18,6 @@ while [ $count -le 100 ]; do
     elif [ $((count % 5)) -eq 0 ]; then
         echo "$buzz"
     else
-        echo "$count"
+        echo $count
     fi
-    ((count++))
 done
