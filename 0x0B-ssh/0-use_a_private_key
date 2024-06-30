@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# ssh command to connect to a remote ubuntu server
+# using the key "/ssh/school"
+ssh ubuntu@100.25.180.67 -i ~/.ssh/school
