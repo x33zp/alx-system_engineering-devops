@@ -6,7 +6,7 @@ sudo apt-get -y install nginx
 
 echo 'Hello World!' > /var/www/html/index.html
 
-redirString="\\\trewrite ^/redirect_me https://github.com/x33zp permanent;"
-sudo sed -i "/server_name _;/a $redirString" /etc/nginx/sites-available/default
+redirString="server_name _;\n\trewrite ^/redirect_me https://github.com/x33zp permanent;"
+sudo sed -i "s/server_name _;/$redirString/" /etc/nginx/sites-available/default
 
 sudo service nginx restart
