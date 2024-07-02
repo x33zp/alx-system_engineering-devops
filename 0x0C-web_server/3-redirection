@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Configures your Nginx server so that /redirect_me is redirecting to another page.
 
-sudo apt-get -y update
+sudo apt-get update
 sudo apt-get -y install nginx
 
-sudo bash -c "echo 'Hello World!' > /var/www/html/index.html"
+echo 'Hello World!' > /var/www/html/index.html
 
 redirString="\\\trewrite ^/redirect_me https://github.com/x33zp permanent;"
 sudo sed -i "/server_name _;/a $redirString" /etc/nginx/sites-available/default
