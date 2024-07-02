@@ -4,7 +4,7 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html
 
 string404="\\\tterror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
 sudo sed -i "/listen 80 default_server;/a $string404" /etc/nginx/sites-available/default
