@@ -39,5 +39,8 @@ symbolic-links=0
 server-id       = 2
 # This defines the base name and location of MySQL’s binary log file.
 log_bin         = /var/log/mysql/mysql-bin.log
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
 # This defines the database to replicate
 binlog_do_db    = tyrell_corp
+relay-log       = /var/log/mysql/mysql-relay-bin.log
