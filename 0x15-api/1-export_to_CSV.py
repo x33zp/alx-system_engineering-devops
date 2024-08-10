@@ -4,9 +4,9 @@ saves information about his/her TODO list progress
 to CSV file.
 """
 
+import csv
 import requests
 from sys import argv
-import csv
 
 
 if __name__ == "__main__":
