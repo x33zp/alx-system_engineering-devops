@@ -6,6 +6,7 @@ import requests
 
 
 def number_of_subscribers(subreddit):
+    """ Queries the Reddit API and returns the number of subscribers """
     url = 'https://api.reddit.com/r/{}/about'.format(subreddit)
 
     res = requests.get(url, allow_redirects=False)
