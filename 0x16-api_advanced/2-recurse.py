@@ -4,28 +4,25 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], after=None, times=0):
+def recurse(subreddit, hot_list=[], after=None):
     """Recursively query Reddict API and return a list"""
+    url = 'https://api.reddit.com/r/{}/hot'.format(subreddit)
+    headers = {"User-Agent": "linux:0x16.api.advanced:v1.0.0"}
+    params = {"limit": 100, "after": after}
+
+    res = requests.get(url, headers=headers, params=params,
+                       allow_redirects=False)
+
     try:
-        url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-        headers = {
-            "User-Agent": "linux:0x16.api.advanced:v1.0.0"
-            }
-        params = {
-                "limit": 100,
-                "times": times,
-                "after": after
-            }
-        request = requests.get(url, headers=headers,
-                               params=params, allow_redirects=False)
-        result = request.json().get('data')
-        after = result.get('after')
-        times += result.get('dist')
-        for child in result.get('children'):
-            hot_list.append(child.get('data').get('title'))
-        if after is not None:
-            return recurse(subreddit, hot_list, after, times)
-        else:
-            return hot_list
+        result = res.json()
     except Exception:
-        print(None)
+        return None
+
+    after = result.get('data').get('after')
+
+    for child in result.get('data').get('children'):
+        hot_list.append(child.get('data').get('title'))
+    if after is not None:
+        recurse(subreddit, hot_list, after)
+    else:
+        return hot_list
