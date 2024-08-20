@@ -10,7 +10,8 @@ def recurse(subreddit, hot_list=[], after=None):
     headers = {"User-Agent": "linux:0x16.api.advanced:v1.0.0"}
     params = {"limit": 100, "after": after}
 
-    res = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    res = requests.get(url, headers=headers, params=params,
+                       allow_redirects=False)
 
     try:
         result = res.json()
